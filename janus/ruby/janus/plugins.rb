@@ -1,4 +1,5 @@
 require 'rake'
+require 'openssl'
 require 'open-uri'
 
 module Janus
@@ -28,7 +29,7 @@ module Janus
   # @param [String] path
   def download_and_save_file(url, path)
     proxy = ENV['http_proxy'] || ENV['HTTP_PROXY']
-    open_and_save_file(path, open(url, :proxy => proxy).read)
+    open_and_save_file(path, open(url, :proxy => proxy, :ssl_verify_mode=> OpenSSL::SSL::VERIFY_NONE).read)
   end
 
   # Open and save file
