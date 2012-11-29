@@ -1,3 +1,29 @@
+# CHANGES ON THIS FORK FROM JANUS MAINLINE
+
+This fork mirrors the main Janus vim distribution repository (as 
+of the time of the fork, Novemeber 29th, 2012) with only one single 
+change: During installation and updating, all HTTP fetches from a SSL
+enabled server will *not* attempt to verify the SSL certificate.
+
+Why is this useful? Some ill-maintained machines have broken OpenSSL
+installations, or outdated certificate authority (CA) lists which
+cause fetches over to SSL enabled servers (e.g., GitHub) to fail. There
+is usually no harm in this failure, except that OpenSLL will,
+by default, refuse to continue the transaction. This means your
+Janus install will fail because it can't fetch files from Github.
+
+If you are having errors about "certificate verify failed" when trying
+to install Janus, this should fix your problem. Follow the updated
+instructions below to install.
+
+As a caveat, updating Janus will continue to cause it to pull the
+latest changes from this repo. Which is good, so that the mainline
+Janus changsets don't undo the "ignore SSL cert" fix, but it also
+means that your Janus install will only be as up-to-date as I keep
+this fork in sync with Janus mainline.
+
+***
+
 # Janus: Vim Distribution
 
 This is a distribution of plug-ins and mappings for Vim, Gvim and
@@ -28,7 +54,7 @@ To upgrade to the latest version:
 2. move customizations from `~/.vimrc.local` to `~/.vimrc.before` and
    `~/.vimrc.after`.
 3. Do the same with `/.gvimrc.local`.
-4. Run the installer: `curl -Lo- https://bit.ly/janus-bootstrap | bash`
+4. Run the installer: `curl -kLo- https://raw.github.com/int3h/janus/master/bootstrap.sh | bash`
 
 ## Updating to the latest version (from any time after January 10th, 2012)
 
@@ -80,7 +106,7 @@ installer](https://github.com/carlhuda/janus/blob/master/bootstrap.sh)
 Janus.
 
 ```bash
-$ curl -Lo- https://bit.ly/janus-bootstrap | bash
+$ curl -kLo- https://raw.github.com/int3h/janus/master/bootstrap.sh | bash
 ```
 
 ## Customization
