@@ -41,36 +41,6 @@ popular plug-ins and the most common mappings.
 The distribution is completely customisable using a `~/.vimrc.before`
 and `~/.vimrc.after` Vim RC files.
 
-# UPGRADING FROM JANUARY 1st 2012 THROUGH JANUARY 10th
-
-Please run `rake` twice before running macvim; make sure `command-t` is
-gone.
-
-# UPGRADING FROM BEFORE JANUARY 1st 2012
-
-If you were using Janus before January 2012, note that Janus has gone
-through a rewrite to make it more stable and customizable. Most notably,
-you can now disable plugins using `janus#disable_plugin` and customize
-Janus using `~/.vimrc.before` and `~/.vimrc.after`. See the rest of this
-`README` and the [Customization wiki page](https://github.com/carlhuda/janus/wiki/Customization).
-
-To upgrade to the latest version:
-
-1. remove `~/.vim`, `~/.vimrc` and `~/.gvimrc`.
-2. move customizations from `~/.vimrc.local` to `~/.vimrc.before` and
-   `~/.vimrc.after`.
-3. Do the same with `/.gvimrc.local`.
-4. Run the installer: `curl -kLo- https://raw.github.com/int3h/janus/master/bootstrap.sh | bash`
-
-## Updating to the latest version (from any time after January 10th, 2012)
-
-To update to the latest version of the distribution, just run `rake`
-inside your `~/.vim` directory.
-
-NOTE: If you ever have an error updating Janus relating to a
-missing commit in a submodule, please try running `rake` again before
-submitting an issue.
-
 ## Mailing list
 
 The mailing list is hosted at [Google
@@ -81,7 +51,7 @@ discussion and announcements.
 
 The distribution is designed to work with Vim >= 7.3.
 
-The distribution also requires `ack`, `ctags`, `git`, `ruby` and `rake`.
+The distribution also requires `ack`, `ctags`, `git`, `ruby 1.9` and `rake`.
 For the most comfortable experience, use the GUI version of Vim. Linux
 users should install `gvim`, OSX users should install
 [MacVim](http://code.google.com/p/macvim/). The recommended way of
