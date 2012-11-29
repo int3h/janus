@@ -1,5 +1,11 @@
 # CHANGES ON THIS FORK FROM JANUS MAINLINE
 
+**If you are not presently having SSL certificate verification errors
+while trying to install Janus, than this fork will not help or affect
+you.**
+
+**The changes in this fork require Ruby >=1.9.1 to work.**
+
 This fork mirrors the main Janus vim distribution repository (as 
 of the time of the fork, Novemeber 29th, 2012) with only one single 
 change: During installation and updating, all HTTP fetches from a SSL
